@@ -27,6 +27,12 @@
       <artifactId>gt-http</artifactId>
       <version>29.0</version>
     </dependency>
+    <dependency>
+      <groupId>org.geotools</groupId>
+      <artifactId>gt-http-commons</artifactId>
+      <version>29.0</version>
+    </dependency>
+
   </dependencies>
   <build>
     <plugins>

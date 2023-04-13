@@ -2,6 +2,7 @@ package fr.spironet.geoserver.check
 
 import org.apache.commons.io.IOUtils
 import org.geotools.http.SimpleHttpClient
+import org.geotools.http.commons.MultithreadedHttpClient
 import org.geotools.ows.wms.Layer
 import org.geotools.ows.wms.WMSUtils
 import org.geotools.ows.wms.WebMapServer
@@ -26,16 +27,18 @@ class EntryPoint {
     }
 
     static void main(String[] args) {
-        /*
-        def httpClient = new MultithreadedHttpClient()
-        httpClient.setReadTimeout(10)
-        httpClient.setConnectTimeout(10)
-        */
-        def httpClient = new SimpleHttpClient()
         if (args.size() == 0) {
             println "Usage: java -jar ... <wms url to test>"
             System.exit(1)
         }
+
+        // Weirdly, when using this http client, I got very bad performances ... ?!
+        //def httpClient = new MultithreadedHttpClient()
+        //httpClient.setReadTimeout(10)
+        //httpClient.setConnectTimeout(10)
+
+        // This one is much faster
+        def httpClient = new SimpleHttpClient()
 
         def wms = new WebMapServer(
                 new URL(args[0])
