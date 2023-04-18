@@ -63,7 +63,13 @@
           <archive>
             <manifest>
               <mainClass>fr.spironet.geoserver.check.EntryPoint</mainClass>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
             </manifest>
+            <manifestEntries>
+              <Specification-Vendor>fr.spironet</Specification-Vendor>
+              <Implementation-Vendor>fr.spironet</Implementation-Vendor>
+            </manifestEntries>
           </archive>
           <descriptorRefs>
             <descriptorRef>jar-with-dependencies</descriptorRef>
