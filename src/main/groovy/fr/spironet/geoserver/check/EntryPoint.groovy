@@ -18,7 +18,7 @@ class EntryPoint {
     static def getXmlError(def str) {
         try {
             def slurped = new XmlSlurper(false, false).parseText(str)
-            println slurped.ServiceException.text().strip()
+            return slurped.ServiceException.text().strip()
         } catch (Exception e) {
             return "Unknown error"
         }
